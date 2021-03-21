@@ -1,0 +1,75 @@
+div(class='col-md-12')
+    // general form elements
+    div(class='card card-primary')
+        div(class='card-header')
+            h3(class='card-title')
+                | New Purchase
+        // card-header
+        // form start
+        form(role='form' action='/purchases/createPurchase' method='post' id='createPurchase')
+            div(class='card-body')
+                div(class='row')
+                    div(class='col-md-6')
+                        div(class='form-group')
+                            label(for='productId')
+                                | Product Name
+                            select(class='form-control productId' id='productId')
+                                each product in products
+                                    option(value=product.productId label=product.productName)
+                        // end form-group
+                        div(class='row')
+                            div(class='col-md-6')
+                                div(class='form-group')
+                                    label(for='billNumber')
+                                        | Bill Number
+                                    input(class='form-control' type='text' name='billNumber' id='billNumber')
+                                // end form-group
+                            div(class='col-md-6')
+                                div(class='form-group')
+                                    label(for='purchaseDate')
+                                        | Purchase Date
+                                    input(class='form-control' type='date' name='purchaseDate' id='purchaseDate')
+                                // end form-group
+                    div(class='col-md-6')
+                        div(class='form-group')
+                            label(for='purchaseNotes')
+                                | Purchase Notes
+                            textarea(class='form-control' name="purchaseNotes", cols="30", rows="5")
+                        // end form-group
+                div(class='row')
+                    div(class='col-md-2')
+                        div(class='form-group')
+                            label(for='purchaseQuantity')
+                                | Purchase Quantity
+                            input(class='form-control' type='number' name='purchaseQuantity' id='purchaseQuantity')
+                        // end form-group
+                    div(class='col-md-2')
+                        div(class='form-group')
+                            label(for='amountBeforeTax')
+                                | Amount Before Tax
+                            input(class='form-control amountBeforeTax' type='number' name='amountBeforeTax' id='amountBeforeTax')
+                        // end form-group
+                    div(class='col-md-2')
+                        div(class='form-group')
+                            label(for='gstAmount')
+                                | Gst Amount
+                            input(class='form-control gstAmount' type='number' name='gstAmount' id='gstAmount')
+                        // end form-group
+                    div(class='col-md-2')
+                        div(class='form-group')
+                            label(for='discountAmount')
+                                | Discount Amount
+                            input(class='form-control discountAmount' type='number' name='discountAmount' id='discountAmount')
+                        // end form-group
+                    div(class='col-md-2')
+                        div(class='form-group')
+                            label(for='payableAmount')
+                                | Payable Amount
+                            input(class='form-control payableAmount' type='text' name='payableAmount' id='payableAmount' disabled='true')
+                        // end form-group
+            // end card-body
+
+            div(class='card-footer')
+                button(type='submit' class='btn btn-primary')
+                    | Submit        
+    // end card

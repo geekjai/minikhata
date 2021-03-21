@@ -11,15 +11,15 @@ const METRICUNIT = sqlite.define('pro_metric_units',
         },
         unitType: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: false
         },
         unitName: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: false
         },
         unitSymbol : {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: false
         }
     }
 );

@@ -2,6 +2,7 @@ const sqlite = require('../config/sqlite');
 require('./schemas/pro_metric_units');
 require('./schemas/pro_categories');
 require('./schemas/pro_products');
+require('./schemas/pro_purchases');
 
 sqlite.sync({ force: true })
 .then(() => {

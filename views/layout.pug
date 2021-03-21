@@ -6,6 +6,9 @@ html
     link(rel='stylesheet', href='/adminlte/css/adminlte.min.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    block styleContent
+    script(src='/plugins/jquery/jquery.min.js')
+    script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
   body(class='layout-top-nav')
     div(class='wrapper')
       nav(class='main-header')
@@ -17,8 +20,7 @@ html
 
       aside(class='control-sidebar control-sidebar-dark')
       footer(class='main-footer')
-    script(src='/plugins/jquery/jquery.min.js')
-    script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
     script(src='/adminlte/js/adminlte.min.js')
     script(src='/javascripts/footer.js')
     script(src='/javascripts/header-nav.js')
+    block scriptContent

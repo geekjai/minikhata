@@ -1,0 +1,10 @@
+extends layout
+block styleContent
+  link(rel='stylesheet', href='/plugins/select2/css/select2.min.css')
+  link(rel='stylesheet', href='/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')
+block content
+  include ./form/createPurchase
+
+block scriptContent
+  script(src='/plugins/select2/js/select2.min.js')
+  script(src='/api/purchases_api.js')
