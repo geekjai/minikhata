@@ -5,10 +5,15 @@ const PRODUCT = require('../data/schemas/pro_products');
 const PURCHASE = require('../data/schemas/pro_purchases');
 
 router.get('/viewPurchases', function (req, res, next) {
+  res.render('purchase', { ViewPurchases: true });
+});
+
+/* Render create purchase. */
+router.get('/createPurchase', function (req, res, next) {
   Promise
     .all([PRODUCT.SCHEMA.findAll()])
     .then(responses => {
-      res.render('purchase', { title: 'Mini Khata', products: responses[0], ViewPurchases: true });
+      res.render('purchase', { products: responses[0], CreatePurchase: true });
     })
     .catch(err => {
       console.log(err);
@@ -27,7 +32,7 @@ router.get('/api/purchaseRecords', function (req, res, next) {
 });
 
 /* POST new purchase. */
-router.post('/createPurchase', function (req, res) {
+router.post('/api/createPurchase', function (req, res) {
   PURCHASE.SCHEMA.create(req.body);
   res.send({ success: 'Yes' });
 });

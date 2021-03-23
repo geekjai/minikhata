@@ -14,41 +14,49 @@ function calculatePayableAmount() {
 
     $('#payableAmount').val(payableAmount);
 }
-$(".amountBeforeTax").change(function () {
-    calculatePayableAmount();
-});
-$(".gstAmount").change(function () {
-    calculatePayableAmount();
-});
-$(".discountAmount").change(function () {
-    calculatePayableAmount();
-});
 
-$("#createPurchase").submit(function (event) {
-    event.preventDefault();
-    var form = event.currentTarget;
-    var purchase = {
-        productId: form.querySelector('.productId').value,
-        billNumber: form.querySelector('input[name="billNumber"]').value,
-        purchaseQuantity: form.querySelector('input[name="purchaseQuantity"]').value,
-        purchaseNotes: form.querySelector('textarea[name="purchaseNotes"]').value,
-        amountBeforeTax: form.querySelector('input[name="amountBeforeTax"]').value,
-        gstAmount: form.querySelector('input[name="gstAmount"]').value,
-        discountAmount: form.querySelector('input[name="discountAmount"]').value,
-        purchaseDate: form.querySelector('input[name="purchaseDate"]').value
-    }
-    $.ajax({
-        type: 'post',
-        url: '/purchases/createPurchase',
-        data: JSON.stringify(purchase),
-        contentType: "application/json; charset=utf-8",
-        traditional: true,
-        success: function (data) {
-            alert("Handler for .submit() called.");
+/********createPurchase Flow **********/
+$(function () {
+    $("#cacel_cp").click(function () {
+        window.location.href = '/purchases/viewPurchases';
+    });
+    $(".amountBeforeTax").change(function () {
+        calculatePayableAmount();
+    });
+    $(".gstAmount").change(function () {
+        calculatePayableAmount();
+    });
+    $(".discountAmount").change(function () {
+        calculatePayableAmount();
+    });
+    
+    $("#createPurchase").submit(function (event) {
+        event.preventDefault();
+        var form = event.currentTarget;
+        var purchase = {
+            productId: form.querySelector('.productId').value,
+            billNumber: form.querySelector('input[name="billNumber"]').value,
+            purchaseQuantity: form.querySelector('input[name="purchaseQuantity"]').value,
+            purchaseNotes: form.querySelector('textarea[name="purchaseNotes"]').value,
+            amountBeforeTax: form.querySelector('input[name="amountBeforeTax"]').value,
+            gstAmount: form.querySelector('input[name="gstAmount"]').value,
+            discountAmount: form.querySelector('input[name="discountAmount"]').value,
+            purchaseDate: form.querySelector('input[name="purchaseDate"]').value
         }
+        $.ajax({
+            type: 'post',
+            url: '/purchases/api/createPurchase',
+            data: JSON.stringify(purchase),
+            contentType: "application/json; charset=utf-8",
+            traditional: true,
+            success: function (data) {
+                window.location.href = '/purchases/viewPurchases';
+            }
+        });
     });
 });
 
+/********viewPurchases Flow **********/
 $(function () {
     $('#tblPurchaseList').DataTable({
         "paging": true,
@@ -71,6 +79,12 @@ $(function () {
             { "data": "gstAmount" },
             { "data": "discountAmount" },
             { "data": "payableAmount" }
-        ]
+        ],
+        "dom": '<"toolbar">frtip'
+    });
+    $("div.toolbar").html('<button id="createPur" type="button" class="btn btn-block btn-info" style="width:80px;">Create</button>');
+
+    $("#createPur").click(function () {
+        window.location.href = '/purchases/createPurchase';
     });
 });
