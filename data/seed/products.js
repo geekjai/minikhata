@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const sqlite = require('../../config/sqlite');
 const PRODUCT = require('../schemas/pro_products');
 
-PRODUCT.bulkCreate([
+PRODUCT.SCHEMA.bulkCreate([
     {
         productId: 1,
         productCode: 'BAMBOO_INCENSE_STICK',

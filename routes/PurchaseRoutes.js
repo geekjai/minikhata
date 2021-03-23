@@ -6,9 +6,20 @@ const PURCHASE = require('../data/schemas/pro_purchases');
 
 router.get('/viewPurchases', function (req, res, next) {
   Promise
-    .all([PRODUCT.findAll()])
+    .all([PRODUCT.SCHEMA.findAll()])
     .then(responses => {
-      res.render('purchase', { title: 'Mini Khata', products: responses[0] });
+      res.render('purchase', { title: 'Mini Khata', products: responses[0], ViewPurchases: true });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+router.get('/api/purchaseRecords', function (req, res, next) {
+  Promise
+    .all([PURCHASE.execFindAll()])
+    .then(responses => {
+      res.send(responses[0]);
     })
     .catch(err => {
       console.log(err);
@@ -17,7 +28,7 @@ router.get('/viewPurchases', function (req, res, next) {
 
 /* POST new purchase. */
 router.post('/createPurchase', function (req, res) {
-  PURCHASE.create(req.body);
+  PURCHASE.SCHEMA.create(req.body);
   res.send({ success: 'Yes' });
 });
 

@@ -29,13 +29,13 @@ $("#createPurchase").submit(function (event) {
     var form = event.currentTarget;
     var purchase = {
         productId: form.querySelector('.productId').value,
-        billNumber : form.querySelector('input[name="billNumber"]').value,
+        billNumber: form.querySelector('input[name="billNumber"]').value,
         purchaseQuantity: form.querySelector('input[name="purchaseQuantity"]').value,
-        purchaseNotes : form.querySelector('textarea[name="purchaseNotes"]').value,
-        amountBeforeTax : form.querySelector('input[name="amountBeforeTax"]').value,
+        purchaseNotes: form.querySelector('textarea[name="purchaseNotes"]').value,
+        amountBeforeTax: form.querySelector('input[name="amountBeforeTax"]').value,
         gstAmount: form.querySelector('input[name="gstAmount"]').value,
-        discountAmount : form.querySelector('input[name="discountAmount"]').value,
-        purchaseDate : form.querySelector('input[name="purchaseDate"]').value
+        discountAmount: form.querySelector('input[name="discountAmount"]').value,
+        purchaseDate: form.querySelector('input[name="purchaseDate"]').value
     }
     $.ajax({
         type: 'post',
@@ -46,5 +46,31 @@ $("#createPurchase").submit(function (event) {
         success: function (data) {
             alert("Handler for .submit() called.");
         }
+    });
+});
+
+$(function () {
+    $('#tblPurchaseList').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        "ajax": {
+            "url": "/purchases/api/purchaseRecords",
+            "dataSrc": ""
+        },
+        "columns": [
+            { "data": "purchaseId" },
+            { "data": "productName" },
+            { "data": "billNumber" },
+            { "data": "purchaseQuantity" },
+            { "data": "amountBeforeTax" },
+            { "data": "gstAmount" },
+            { "data": "discountAmount" },
+            { "data": "payableAmount" }
+        ]
     });
 });

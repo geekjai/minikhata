@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 const sqlite = require('../../config/sqlite');
 
-const PRODUCT = sqlite.define('pro_products',
+const SCHEMA = sqlite.define('pro_products',
     {
         productId: {
             type: Sequelize.INTEGER,
@@ -21,4 +21,6 @@ const PRODUCT = sqlite.define('pro_products',
     }
 );
 
-module.exports = PRODUCT;
+module.exports = {
+    SCHEMA
+};
