@@ -34,9 +34,12 @@ div(class='col-md-12')
                             input(value=purchase.purchaseId class='form-control' type='hidden' name='purchaseId' id='purchaseId')
                             label(for='productId')
                                 | Product Name
-                            select(value=purchase.productId disabled=EditPurchase class='form-control productId' id='productId')
+                            select(disabled=EditPurchase class='form-control productId' id='productId')
                                 each product in products
-                                    option(value=product.productId label=product.productName)
+                                    if purchase.productId == product.productId
+                                        option(value=product.productId selected='true') #{product.productName}
+                                    else
+                                        option(value=product.productId) #{product.productName}
                         // end form-group
                         div(class='row')
                             div(class='col-md-6')
