@@ -1,19 +1,40 @@
+-function prettyDate(dateString){
+    //if it's already a date object and not a string you don't need this line:
+    -var date = new Date(dateString);
+    -var dd = date.getDate();
+    //-var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+    -var y = date.getFullYear();
+    -var mm = date.getMonth() + 1;
+    //-var m = monthNames[date.getMonth()];
+    -if (dd < 10) {
+    -   dd = '0' + dd;
+    -}
+    -if (mm < 10) {
+    -   mm = '0' + mm;
+    -}
+    -return y+'-'+mm+'-'+dd;
+-}
+-var purchaseDate = prettyDate(purchase.purchaseDate);
 div(class='col-md-12')
     // general form elements
     div(class='card card-primary')
         div(class='card-header' style='background: #d81b60')
             h3(class='card-title')
-                | New Purchase
+                if CreatePurchase
+                    | New Purchase
+                else if EditPurchase
+                    | Edit Purchase
         // card-header
         // form start
-        form(role='form' action='/purchases/createPurchase' method='post' id='createPurchase')
+        form(role='form' action='/purchases/editPurchase' method='post' id=actionId)
             div(class='card-body')
                 div(class='row')
                     div(class='col-md-6')
                         div(class='form-group')
+                            input(value=purchase.purchaseId class='form-control' type='hidden' name='purchaseId' id='purchaseId')
                             label(for='productId')
                                 | Product Name
-                            select(class='form-control productId' id='productId')
+                            select(value=purchase.productId disabled=EditPurchase class='form-control productId' id='productId')
                                 each product in products
                                     option(value=product.productId label=product.productName)
                         // end form-group
@@ -22,56 +43,61 @@ div(class='col-md-12')
                                 div(class='form-group')
                                     label(for='billNumber')
                                         | Bill Number
-                                    input(class='form-control' type='text' name='billNumber' id='billNumber')
+                                    input(value=purchase.billNumber disabled=EditPurchase class='form-control' type='text' name='billNumber' id='billNumber')
                                 // end form-group
                             div(class='col-md-6')
                                 div(class='form-group')
                                     label(for='purchaseDate')
                                         | Purchase Date
-                                    input(class='form-control' type='date' name='purchaseDate' id='purchaseDate')
+                                    input(value=purchaseDate class='form-control date' type='date' name='purchaseDate' id='purchaseDate')
                                 // end form-group
                     div(class='col-md-6')
                         div(class='form-group')
                             label(for='purchaseNotes')
                                 | Purchase Notes
-                            textarea(class='form-control' name="purchaseNotes", cols="30", rows="5")
+                            textarea(class='form-control' name="purchaseNotes", cols="30", rows="5") #{purchase.purchaseNotes}
+                                
                         // end form-group
                 div(class='row')
                     div(class='col-md-2')
                         div(class='form-group')
                             label(for='purchaseQuantity')
                                 | Purchase Quantity
-                            input(class='form-control' type='number' name='purchaseQuantity' id='purchaseQuantity')
+                            input(value=purchase.purchaseQuantity class='form-control' type='number' name='purchaseQuantity' id='purchaseQuantity')
                         // end form-group
                     div(class='col-md-2')
                         div(class='form-group')
                             label(for='amountBeforeTax')
                                 | Amount Before Tax
-                            input(class='form-control amountBeforeTax' type='number' name='amountBeforeTax' id='amountBeforeTax')
+                            input(value=purchase.amountBeforeTax class='form-control amountBeforeTax' type='number' name='amountBeforeTax' id='amountBeforeTax')
                         // end form-group
                     div(class='col-md-2')
                         div(class='form-group')
                             label(for='gstAmount')
                                 | Gst Amount
-                            input(class='form-control gstAmount' type='number' name='gstAmount' id='gstAmount')
+                            input(value=purchase.gstAmount class='form-control gstAmount' type='number' name='gstAmount' id='gstAmount')
                         // end form-group
                     div(class='col-md-2')
                         div(class='form-group')
                             label(for='discountAmount')
                                 | Discount Amount
-                            input(class='form-control discountAmount' type='number' name='discountAmount' id='discountAmount')
+                            input(value=purchase.discountAmount class='form-control discountAmount' type='number' name='discountAmount' id='discountAmount')
                         // end form-group
                     div(class='col-md-2')
                         div(class='form-group')
                             label(for='payableAmount')
                                 | Payable Amount
-                            input(class='form-control payableAmount' type='text' name='payableAmount' id='payableAmount' disabled='true')
+                            input(value=purchase.payableAmount class='form-control payableAmount' type='text' name='payableAmount' id='payableAmount' disabled='true')
                         // end form-group
             // end card-body
 
             div(class='card-footer')
-                button(type='submit' class='btn btn-primary float-right')
-                    | Submit
-                button(type='cacel' id="cacel_cp" class='btn btn-danger float-right' style='margin-right:15px;')
+                if CreatePurchase
+                    button(type='submit' class='btn btn-primary float-right')
+                        | Submit
+                else if EditPurchase
+                    button(type='submit' visiable=EditPurchase class='btn btn-primary float-right')
+                        | Update
+                button(type='button' id="cacel_cp" class='btn btn-danger float-right' style='margin-right:15px;')
                     | Cancel        
     // end card

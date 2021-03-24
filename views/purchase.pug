@@ -8,7 +8,9 @@ block content
   if ViewPurchases
     include ./uipurchase/PurchaseList
   else if CreatePurchase
-    include ./uipurchase/CreatePurchase
+    include ./uipurchase/CreateEditPurchase
+  else if EditPurchase
+    include ./uipurchase/CreateEditPurchase
   
 block scriptContent
   script(src='/plugins/select2/js/select2.min.js')
