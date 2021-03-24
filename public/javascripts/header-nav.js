@@ -24,6 +24,26 @@
   $leftNav.append(
     "<li class='nav-item d-none d-sm-inline-block'><a href='/purchases/viewPurchases' class='nav-link'>Purchase</a></li>"
   )
+  
+  var $rightNav = $('<ul />', {
+    class: 'navbar-nav ml-auto'
+  })
+
+  $mainHeader.append($rightNav)
+
+  //Documentation
+  $rightNav.append(
+    `<li class='nav-item dropdown' style="margin-right:10px;">
+      <a class="nav-link bg-info rounded dropdown-toggle" href="#" id="docDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Documentation
+      </a>
+      <div class="dropdown-menu py-0" aria-labelledby="docDropdown">
+        <a class="dropdown-item" href="/doc/generalui">General Ui</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/doc/generalform">General Form</a>
+      </div>
+    </li>`
+  )
 /*
   var $rightNav = $('<ul />', {
     class: 'navbar-nav ml-auto'

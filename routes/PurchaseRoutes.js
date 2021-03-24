@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Promise = require('promise');
+const moment = require('moment');
 const PRODUCT = require('../data/schemas/pro_products');
 const PURCHASE = require('../data/schemas/pro_purchases');
 
@@ -41,7 +42,9 @@ router.get('/editPurchase/:purchaseId', async function (req, res) {
       })
     ])
     .then(responses => {
-      console.log(responses[1]);
+      let purchaseDate = responses[1][0].purchaseDate;
+      const d = new Date(purchaseDate);
+      responses[1][0].purchaseDate = moment(d).format('YYYY-MM-DD');
       res.render('purchase',
         {
           products: responses[0],
@@ -69,25 +72,29 @@ router.get('/api/purchaseRecords', function (req, res, next) {
 
 /* POST new purchase. */
 router.post('/api/createPurchase', function (req, res) {
-  PURCHASE.SCHEMA.create(req.body);
-  res.send({ success: 'Yes' });
+  let data = PURCHASE.processPurchaseRequest(true, false, req.body);
+  PURCHASE.SCHEMA.create(data).then((purchase) => {
+    res.send({ success: 'Yes' });
+  });
 });
 
-/* POST new purchase. */
-router.post('/api/editPurchase', function (req, res) {
+/* PUT update existing purchase. */
+router.put('/api/editPurchase', function (req, res) {
+  let data = PURCHASE.processPurchaseRequest(false, true, req.body);
   PURCHASE.SCHEMA.findByPk(req.body.purchaseId).then(function (purchase) {
-    purchase.update({
-      purchaseQuantity: req.body.purchaseQuantity,
-      purchaseNotes: req.body.purchaseNotes,
-      amountBeforeTax: req.body.amountBeforeTax,
-      gstAmount: req.body.gstAmount,
-      discountAmount: req.body.discountAmount,
-      payableAmount: req.body.payableAmount,
-      purchaseDate: req.body.purchaseDate,
-      isAmountSettled: req.body.isAmountSettled
-    }).then((purchase) => {
-      res.send({ success: 'Yes' });
+    purchase.update(data).then((purchase) => {
+      res.sendStatus(200);
     });
+  });
+});
+
+/* Delete existing purchase. */
+router.delete('/api/deletePurchase/:purchaseId', function (req, res) {
+  let purchaseId = req.params.purchaseId;
+  PURCHASE.SCHEMA.findByPk(purchaseId).then(function (purchase) {
+    purchase.destroy();
+  }).then((purchase) => {
+    res.sendStatus(200);
   });
 });
 

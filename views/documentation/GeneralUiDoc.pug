@@ -1,0 +1,733 @@
+extends DocLayout
+
+block content
+        // COLOR PALETTE
+        .card.card-default.color-palette-box
+          .card-header
+            h3.card-title
+              i.fas.fa-tag
+              |               Color Palette
+          .card-body
+            .col-12
+              h5 Theme Colors
+            // /.col-12
+            .row
+              .col-sm-4.col-md-2
+                h4.text-center Primary
+                .color-palette-set
+                  .bg-primary.color-palette
+                    span #007bff
+                  .bg-primary.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center Secondary
+                .color-palette-set
+                  .bg-secondary.color-palette
+                    span #6c757d
+                  .bg-secondary.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center Info
+                .color-palette-set
+                  .bg-info.color-palette
+                    span #17a2b8
+                  .bg-info.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center Success
+                .color-palette-set
+                  .bg-success.color-palette
+                    span #28a745
+                  .bg-success.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-warning Warning
+                .color-palette-set
+                  .bg-warning.color-palette
+                    span #ffc107
+                  .bg-warning.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center Danger
+                .color-palette-set
+                  .bg-danger.color-palette
+                    span #dc3545
+                  .bg-danger.disabled.color-palette
+                    span Disabled
+              // /.col
+            // /.row
+            .col-12
+              h5.mt-3 Black/White Nuances
+            // /.col-12
+            .row
+              .col-sm-4.col-md-2
+                h4.text-center Black
+                .color-palette-set
+                  .bg-black.color-palette
+                    span #000000
+                  .bg-black.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center Gray Dark
+                .color-palette-set
+                  .bg-gray-dark.color-palette
+                    span #343a40
+                  .bg-gray-dark.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center Gray
+                .color-palette-set
+                  .bg-gray.color-palette
+                    span #adb5bd
+                  .bg-gray.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-light Light
+                .color-palette-set
+                  .bg-light.color-palette
+                    span #1f2d3d
+                  .bg-light.disabled.color-palette
+                    span Disabled
+              // /.col
+            // /.row
+            .col-12
+              h5.mt-3 Colors
+            // /.col-12
+            .row
+              .col-sm-4.col-md-2
+                h4.text-center.bg-indigo Indigo
+                .color-palette-set
+                  .bg-indigo.color-palette
+                    span #6610f2
+                  .bg-indigo.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-lightblue Lightblue
+                .color-palette-set
+                  .bg-lightblue.color-palette
+                    span #3c8dbc
+                  .bg-lightblue.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-navy Navy
+                .color-palette-set
+                  .bg-navy.color-palette
+                    span #001f3f
+                  .bg-navy.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-purple Purple
+                .color-palette-set
+                  .bg-purple.color-palette
+                    span #605ca8
+                  .bg-purple.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-fuchsia Fuchsia
+                .color-palette-set
+                  .bg-fuchsia.color-palette
+                    span #f012be
+                  .bg-fuchsia.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-pink Pink
+                .color-palette-set
+                  .bg-pink.color-palette
+                    span #e83e8c
+                  .bg-pink.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-maroon Maroon
+                .color-palette-set
+                  .bg-maroon.color-palette
+                    span #d81b60
+                  .bg-maroon.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-orange Orange
+                .color-palette-set
+                  .bg-orange.color-palette
+                    span #ff851b
+                  .bg-orange.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-lime Lime
+                .color-palette-set
+                  .bg-lime.color-palette
+                    span #01ff70
+                  .bg-lime.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-teal Teal
+                .color-palette-set
+                  .bg-teal.color-palette
+                    span #39cccc
+                  .bg-teal.disabled.color-palette
+                    span Disabled
+              // /.col
+              .col-sm-4.col-md-2
+                h4.text-center.bg-olive Olive
+                .color-palette-set
+                  .bg-olive.color-palette
+                    span #3d9970
+                  .bg-olive.disabled.color-palette
+                    span Disabled
+              // /.col
+            // /.row
+          // /.card-body
+        // /.card
+        // START ALERTS AND CALLOUTS
+        h5.mt-4.mb-2 Alerts and Callouts
+        .row
+          .col-md-6
+            .card.card-default
+              .card-header
+                h3.card-title
+                  i.fas.fa-exclamation-triangle
+                  |                   Alerts
+              // /.card-header
+              .card-body
+                .alert.alert-danger.alert-dismissible
+                  button.close(type='button' data-dismiss='alert' aria-hidden='true') &times;
+                  h5
+                    i.icon.fas.fa-ban
+                    |  Alert!
+                  |                   Danger alert preview. This alert is dismissable. A wonderful serenity has taken possession of my
+                  |                   entire
+                  |                   soul, like these sweet mornings of spring which I enjoy with my whole heart.
+                .alert.alert-info.alert-dismissible
+                  button.close(type='button' data-dismiss='alert' aria-hidden='true') &times;
+                  h5
+                    i.icon.fas.fa-info
+                    |  Alert!
+                  |                   Info alert preview. This alert is dismissable.
+                .alert.alert-warning.alert-dismissible
+                  button.close(type='button' data-dismiss='alert' aria-hidden='true') &times;
+                  h5
+                    i.icon.fas.fa-exclamation-triangle
+                    |  Alert!
+                  |                   Warning alert preview. This alert is dismissable.
+                .alert.alert-success.alert-dismissible
+                  button.close(type='button' data-dismiss='alert' aria-hidden='true') &times;
+                  h5
+                    i.icon.fas.fa-check
+                    |  Alert!
+                  |                   Success alert preview. This alert is dismissable.
+              // /.card-body
+            // /.card
+          // /.col
+          .col-md-6
+            .card.card-default
+              .card-header
+                h3.card-title
+                  i.fas.fa-bullhorn
+                  |                   Callouts
+              // /.card-header
+              .card-body
+                .callout.callout-danger
+                  h5 I am a danger callout!
+                  p
+                    | There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
+                    | soul,
+                    | like these sweet mornings of spring which I enjoy with my whole heart.
+                .callout.callout-info
+                  h5 I am an info callout!
+                  p Follow the steps to continue to payment.
+                .callout.callout-warning
+                  h5 I am a warning callout!
+                  p This is a yellow callout.
+                .callout.callout-success
+                  h5 I am a success callout!
+                  p This is a green callout.
+              // /.card-body
+            // /.card
+          // /.col
+        // /.row
+        // END ALERTS AND CALLOUTS
+        h5.mt-4.mb-2 Tabs in Cards
+        .row
+          .col-12
+            // Custom Tabs
+            .card
+              .card-header.d-flex.p-0
+                h3.card-title.p-3 Tabs
+                ul.nav.nav-pills.ml-auto.p-2
+                  li.nav-item
+                    a.nav-link.active(href='#tab_1' data-toggle='tab') Tab 1
+                  li.nav-item
+                    a.nav-link(href='#tab_2' data-toggle='tab') Tab 2
+                  li.nav-item
+                    a.nav-link(href='#tab_3' data-toggle='tab') Tab 3
+                  li.nav-item.dropdown
+                    a.nav-link.dropdown-toggle(data-toggle='dropdown' href='#')
+                      | Dropdown 
+                      span.caret
+                    .dropdown-menu
+                      a.dropdown-item(tabindex='-1' href='#') Action
+                      a.dropdown-item(tabindex='-1' href='#') Another action
+                      a.dropdown-item(tabindex='-1' href='#') Something else here
+                      .dropdown-divider
+                      a.dropdown-item(tabindex='-1' href='#') Separated link
+              // /.card-header
+              .card-body
+                .tab-content
+                  #tab_1.tab-pane.active
+                    | A wonderful serenity has taken possession of my entire soul,
+                    | like these sweet mornings of spring which I enjoy with my whole heart.
+                    | I am alone, and feel the charm of existence in this spot,
+                    | which was created for the bliss of souls like mine. I am so happy,
+                    | my dear friend, so absorbed in the exquisite sense of mere tranquil existence,
+                    | that I neglect my talents. I should be incapable of drawing a single stroke
+                    | at the present moment; and yet I feel that I never was a greater artist than now.
+                  // /.tab-pane
+                  #tab_2.tab-pane
+                    | The European languages are members of the same family. Their separate existence is a myth.
+                    | For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                    | in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                    | new common language would be desirable: one could refuse to pay expensive translators. To
+                    | achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                    | words. If several languages coalesce, the grammar of the resulting language is more simple
+                    | and regular than that of the individual languages.
+                  // /.tab-pane
+                  #tab_3.tab-pane
+                    | Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    | Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s,
+                    | when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    | It has survived not only five centuries, but also the leap into electronic typesetting,
+                    | remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                    | sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                    | like Aldus PageMaker including versions of Lorem Ipsum.
+                  // /.tab-pane
+                // /.tab-content
+              // /.card-body
+            // ./card
+          // /.col
+        // /.row
+        // END CUSTOM TABS
+        // START PROGRESS BARS
+        h5.mt-4.mb-2 Progress Bars
+        .row
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title Progress Bars Different Sizes
+              // /.card-header
+              .card-body
+                p
+                  code .progress
+                .progress
+                  .progress-bar.bg-primary.progress-bar-striped(role='progressbar' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' style='width: 40%')
+                    span.sr-only 40% Complete (success)
+                p
+                  code .progress-sm
+                .progress.progress-sm.active
+                  .progress-bar.bg-success.progress-bar-striped(role='progressbar' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100' style='width: 20%')
+                    span.sr-only 20% Complete
+                p
+                  code .progress-xs
+                .progress.progress-xs
+                  .progress-bar.bg-warning.progress-bar-striped(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%')
+                    span.sr-only 60% Complete (warning)
+                p
+                  code .progress-xxs
+                .progress.progress-xxs
+                  .progress-bar.progress-bar-danger.progress-bar-striped(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%')
+                    span.sr-only 60% Complete (warning)
+              // /.card-body
+            // /.card
+          // /.col (left)
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title Progress bars
+              // /.card-header
+              .card-body
+                .progress.mb-3
+                  .progress-bar.bg-success(role='progressbar' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' style='width: 40%')
+                    span.sr-only 40% Complete (success)
+                .progress.mb-3
+                  .progress-bar.bg-info(role='progressbar' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100' style='width: 20%')
+                    span.sr-only 20% Complete
+                .progress.mb-3
+                  .progress-bar.bg-warning(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%')
+                    span.sr-only 60% Complete (warning)
+                .progress.mb-3
+                  .progress-bar.bg-danger(role='progressbar' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100' style='width: 80%')
+                    span.sr-only 80% Complete
+              // /.card-body
+            // /.card
+          // /.col (right)
+        // /.row
+        .row
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title Vertical Progress Bars Different Sizes
+              // /.card-header
+              .card-body.text-center
+                p
+                  | By adding the class 
+                  code .vertical
+                  |  and 
+                  code .progress-sm
+                  | , 
+                  code .progress-xs
+                  |                   or
+                  code .progress-xxs
+                  |  we achieve:
+                .progress.vertical.active
+                  .progress-bar.bg-primary.progress-bar-striped(role='progressbar' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' style='height: 40%')
+                    span.sr-only 40%
+                .progress.vertical.progress-sm
+                  .progress-bar.bg-success(role='progressbar' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100' style='height: 100%')
+                    span.sr-only 100%
+                .progress.vertical.progress-xs
+                  .progress-bar.bg-warning.progress-bar-striped(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='height: 60%')
+                    span.sr-only 60%
+                .progress.vertical.progress-xxs
+                  .progress-bar.bg-info.progress-bar-striped(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='height: 60%')
+                    span.sr-only 60%
+              // /.card-body
+            // /.card
+          // /.col (left)
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title Vertical Progress bars
+              // /.card-header
+              .card-body.text-center
+                p
+                  | By adding the class 
+                  code .vertical
+                  |  we achieve:
+                .progress.vertical
+                  .progress-bar.bg-success(role='progressbar' aria-valuenow='40' aria-valuemin='0' aria-valuemax='100' style='height: 40%')
+                    span.sr-only 40%
+                .progress.vertical
+                  .progress-bar.bg-info(role='progressbar' aria-valuenow='20' aria-valuemin='0' aria-valuemax='100' style='height: 20%')
+                    span.sr-only 20%
+                .progress.vertical
+                  .progress-bar.bg-warning(role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='height: 60%')
+                    span.sr-only 60%
+                .progress.vertical
+                  .progress-bar.bg-danger(role='progressbar' aria-valuenow='80' aria-valuemin='0' aria-valuemax='100' style='height: 80%')
+                    span.sr-only 80%
+              // /.card-body
+            // /.card
+          // /.col (right)
+        // /.row
+        // END PROGRESS BARS
+        // START ACCORDION & CAROUSEL
+        h5.mt-4.mb-2 Bootstrap Accordion &amp; Carousel
+        .row
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title Collapsible Accordion
+              // /.card-header
+              .card-body
+                #accordion
+                  // we are adding the .class so bootstrap.js collapse plugin detects it
+                  .card.card-primary
+                    .card-header
+                      h4.card-title
+                        a(data-toggle='collapse' data-parent='#accordion' href='#collapseOne')
+                          | Collapsible Group Item #1
+                    #collapseOne.panel-collapse.collapse.in
+                      .card-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        | 3
+                        | wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        | laborum
+                        | eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
+                        | nulla
+                        | assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                        | nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                        | beer
+                        | farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                        | labore sustainable VHS.
+                  .card.card-danger
+                    .card-header
+                      h4.card-title
+                        a(data-toggle='collapse' data-parent='#accordion' href='#collapseTwo')
+                          | Collapsible Group Danger
+                    #collapseTwo.panel-collapse.collapse
+                      .card-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        | 3
+                        | wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        | laborum
+                        | eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
+                        | nulla
+                        | assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                        | nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                        | beer
+                        | farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                        | labore sustainable VHS.
+                  .card.card-success
+                    .card-header
+                      h4.card-title
+                        a(data-toggle='collapse' data-parent='#accordion' href='#collapseThree')
+                          | Collapsible Group Success
+                    #collapseThree.panel-collapse.collapse
+                      .card-body
+                        | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        | 3
+                        | wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        | laborum
+                        | eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
+                        | nulla
+                        | assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                        | nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                        | beer
+                        | farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                        | labore sustainable VHS.
+              // /.card-body
+            // /.card
+          // /.col
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title Carousel
+              // /.card-header
+              .card-body
+                #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+                  ol.carousel-indicators
+                    li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+                    li(data-target='#carouselExampleIndicators' data-slide-to='1')
+                    li(data-target='#carouselExampleIndicators' data-slide-to='2')
+                  .carousel-inner
+                    .carousel-item.active
+                      img.d-block.w-100(src='https://placehold.it/900x500/39CCCC/ffffff&text=I+Love+Bootstrap' alt='First slide')
+                    .carousel-item
+                      img.d-block.w-100(src='https://placehold.it/900x500/3c8dbc/ffffff&text=I+Love+Bootstrap' alt='Second slide')
+                    .carousel-item
+                      img.d-block.w-100(src='https://placehold.it/900x500/f39c12/ffffff&text=I+Love+Bootstrap' alt='Third slide')
+                  a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
+                    span.carousel-control-prev-icon(aria-hidden='true')
+                    span.sr-only Previous
+                  a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
+                    span.carousel-control-next-icon(aria-hidden='true')
+                    span.sr-only Next
+              // /.card-body
+            // /.card
+          // /.col
+        // /.row
+        // END ACCORDION & CAROUSEL
+        // START TYPOGRAPHY
+        h5.mt-4.mb-2 Typography
+        .row
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Headlines
+              // /.card-header
+              .card-body
+                h1 h1. Bootstrap heading
+                h2 h2. Bootstrap heading
+                h3 h3. Bootstrap heading
+                h4 h4. Bootstrap heading
+                h5 h5. Bootstrap heading
+                h6 h6. Bootstrap heading
+              // /.card-body
+            // /.card
+          // ./col
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Text Emphasis
+              // /.card-header
+              .card-body
+                p.lead Lead to emphasize importance
+                p.text-success Text green to emphasize success
+                p.text-info Text aqua to emphasize info
+                p.text-primary Text light blue to emphasize info (2)
+                p.text-danger Text red to emphasize danger
+                p.text-warning Text yellow to emphasize warning
+                p.text-muted Text muted to emphasize general
+              // /.card-body
+            // /.card
+          // ./col
+        // /.row
+        .row
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Primary Block Quotes
+              // /.card-header
+              .card-body
+                blockquote
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                  small
+                    | Someone famous in 
+                    cite(title='Source Title') Source Title
+              // /.card-body
+            // /.card
+          // ./col
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Secondary Block Quotes
+              // /.card-header
+              .card-body.clearfix
+                blockquote.quote-secondary
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                  small
+                    | Someone famous in 
+                    cite(title='Source Title') Source Title
+              // /.card-body
+            // /.card
+          // ./col
+        // /.row
+        .row
+          .col-md-4
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Unordered List
+              // /.card-header
+              .card-body
+                ul
+                  li Lorem ipsum dolor sit amet
+                  li Consectetur adipiscing elit
+                  li Integer molestie lorem at massa
+                  li Facilisis in pretium nisl aliquet
+                  li
+                    | Nulla volutpat aliquam velit
+                    ul
+                      li Phasellus iaculis neque
+                      li Purus sodales ultricies
+                      li Vestibulum laoreet porttitor sem
+                      li Ac tristique libero volutpat at
+                  li Faucibus porta lacus fringilla vel
+                  li Aenean sit amet erat nunc
+                  li Eget porttitor lorem
+              // /.card-body
+            // /.card
+          // ./col
+          .col-md-4
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Ordered Lists
+              // /.card-header
+              .card-body
+                ol
+                  li Lorem ipsum dolor sit amet
+                  li Consectetur adipiscing elit
+                  li Integer molestie lorem at massa
+                  li Facilisis in pretium nisl aliquet
+                  li
+                    | Nulla volutpat aliquam velit
+                    ol
+                      li Phasellus iaculis neque
+                      li Purus sodales ultricies
+                      li Vestibulum laoreet porttitor sem
+                      li Ac tristique libero volutpat at
+                  li Faucibus porta lacus fringilla vel
+                  li Aenean sit amet erat nunc
+                  li Eget porttitor lorem
+              // /.card-body
+            // /.card
+          // ./col
+          .col-md-4
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Unstyled List
+              // /.card-header
+              .card-body
+                ul.list-unstyled
+                  li Lorem ipsum dolor sit amet
+                  li Consectetur adipiscing elit
+                  li Integer molestie lorem at massa
+                  li Facilisis in pretium nisl aliquet
+                  li
+                    | Nulla volutpat aliquam velit
+                    ul
+                      li Phasellus iaculis neque
+                      li Purus sodales ultricies
+                      li Vestibulum laoreet porttitor sem
+                      li Ac tristique libero volutpat at
+                  li Faucibus porta lacus fringilla vel
+                  li Aenean sit amet erat nunc
+                  li Eget porttitor lorem
+              // /.card-body
+            // /.card
+          // ./col
+        // /.row
+        .row
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Description
+              // /.card-header
+              .card-body
+                dl
+                  dt Description lists
+                  dd A description list is perfect for defining terms.
+                  dt Euismod
+                  dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                  dd Donec id elit non mi porta gravida at eget metus.
+                  dt Malesuada porta
+                  dd Etiam porta sem malesuada magna mollis euismod.
+              // /.card-body
+            // /.card
+          // ./col
+          .col-md-6
+            .card
+              .card-header
+                h3.card-title
+                  i.fas.fa-text-width
+                  |                   Description Horizontal
+              // /.card-header
+              .card-body
+                dl.row
+                  dt.col-sm-4 Description lists
+                  dd.col-sm-8 A description list is perfect for defining terms.
+                  dt.col-sm-4 Euismod
+                  dd.col-sm-8 Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                  dd.col-sm-8.offset-sm-4 Donec id elit non mi porta gravida at eget metus.
+                  dt.col-sm-4 Malesuada porta
+                  dd.col-sm-8 Etiam porta sem malesuada magna mollis euismod.
+                  dt.col-sm-4 Felis euismod semper eget lacinia
+                  dd.col-sm-8
+                    | Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+                    | sit amet risus.
+              // /.card-body
+            // /.card
+          // ./col
+        // /.row
+        // END TYPOGRAPHY

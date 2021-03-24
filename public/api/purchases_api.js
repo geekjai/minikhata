@@ -74,6 +74,19 @@ $(function () {
             }
         });
     });
+    $("#deletePurBtn").click(function (event) {
+        event.preventDefault();
+        const purchaseId = document.getElementById("purchaseId").value;
+        $.ajax({
+            type: 'delete',
+            url: '/purchases/api/deletePurchase/' + purchaseId,
+            contentType: "application/json; charset=utf-8",
+            traditional: true,
+            success: function (data) {
+                window.location.href = '/purchases/viewPurchases';
+            }
+        });
+    });
 });
 
 /********viewPurchases Flow **********/

@@ -1,0 +1,401 @@
+extends DocLayout
+
+block content
+        .row
+          // left column
+          .col-md-6
+            // general form elements
+            .card.card-primary
+              .card-header
+                h3.card-title Quick Example
+              // /.card-header
+              // form start
+              form(role='form')
+                .card-body
+                  .form-group
+                    label(for='exampleInputEmail1') Email address
+                    input#exampleInputEmail1.form-control(type='email' placeholder='Enter email')
+                  .form-group
+                    label(for='exampleInputPassword1') Password
+                    input#exampleInputPassword1.form-control(type='password' placeholder='Password')
+                  .form-group
+                    label(for='exampleInputFile') File input
+                    .input-group
+                      .custom-file
+                        input#exampleInputFile.custom-file-input(type='file')
+                        label.custom-file-label(for='exampleInputFile') Choose file
+                      .input-group-append
+                        span.input-group-text(id='') Upload
+                  .form-check
+                    input#exampleCheck1.form-check-input(type='checkbox')
+                    label.form-check-label(for='exampleCheck1') Check me out
+                // /.card-body
+                .card-footer
+                  button.btn.btn-primary(type='submit') Submit
+            // /.card
+            // Form Element sizes
+            .card.card-success
+              .card-header
+                h3.card-title Different Height
+              .card-body
+                input.form-control.form-control-lg(type='text' placeholder='.form-control-lg')
+                br
+                input.form-control(type='text' placeholder='Default input')
+                br
+                input.form-control.form-control-sm(type='text' placeholder='.form-control-sm')
+              // /.card-body
+            // /.card
+            .card.card-danger
+              .card-header
+                h3.card-title Different Width
+              .card-body
+                .row
+                  .col-3
+                    input.form-control(type='text' placeholder='.col-3')
+                  .col-4
+                    input.form-control(type='text' placeholder='.col-4')
+                  .col-5
+                    input.form-control(type='text' placeholder='.col-5')
+              // /.card-body
+            // /.card
+            // Input addon
+            .card.card-info
+              .card-header
+                h3.card-title Input Addon
+              .card-body
+                .input-group.mb-3
+                  .input-group-prepend
+                    span.input-group-text @
+                  input.form-control(type='text' placeholder='Username')
+                .input-group.mb-3
+                  input.form-control(type='text')
+                  .input-group-append
+                    span.input-group-text .00
+                .input-group
+                  .input-group-prepend
+                    span.input-group-text $
+                  input.form-control(type='text')
+                  .input-group-append
+                    span.input-group-text .00
+                h4 With icons
+                .input-group.mb-3
+                  .input-group-prepend
+                    span.input-group-text
+                      i.fas.fa-envelope
+                  input.form-control(type='email' placeholder='Email')
+                .input-group.mb-3
+                  input.form-control(type='text')
+                  .input-group-append
+                    span.input-group-text
+                      i.fas.fa-check
+                .input-group
+                  .input-group-prepend
+                    span.input-group-text
+                      i.fas.fa-dollar-sign
+                  input.form-control(type='text')
+                  .input-group-append
+                    .input-group-text
+                      i.fas.fa-ambulance
+                h5.mt-4.mb-2 With checkbox and radio inputs
+                .row
+                  .col-lg-6
+                    .input-group
+                      .input-group-prepend
+                        span.input-group-text
+                          input(type='checkbox')
+                      input.form-control(type='text')
+                    // /input-group
+                  // /.col-lg-6
+                  .col-lg-6
+                    .input-group
+                      .input-group-prepend
+                        span.input-group-text
+                          input(type='radio')
+                      input.form-control(type='text')
+                    // /input-group
+                  // /.col-lg-6
+                // /.row
+                h5.mt-4.mb-2 With buttons
+                p
+                  | Large: 
+                  code .input-group.input-group-lg
+                .input-group.input-group-lg.mb-3
+                  .input-group-prepend
+                    button.btn.btn-warning.dropdown-toggle(type='button' data-toggle='dropdown')
+                      | Action
+                    ul.dropdown-menu
+                      li.dropdown-item
+                        a(href='#') Action
+                      li.dropdown-item
+                        a(href='#') Another action
+                      li.dropdown-item
+                        a(href='#') Something else here
+                      li.dropdown-divider
+                      li.dropdown-item
+                        a(href='#') Separated link
+                  // /btn-group
+                  input.form-control(type='text')
+                // /input-group
+                p Normal
+                .input-group.mb-3
+                  .input-group-prepend
+                    button.btn.btn-danger(type='button') Action
+                  // /btn-group
+                  input.form-control(type='text')
+                // /input-group
+                p
+                  | Small 
+                  code .input-group.input-group-sm
+                .input-group.input-group-sm
+                  input.form-control(type='text')
+                  span.input-group-append
+                    button.btn.btn-info.btn-flat(type='button') Go!
+                // /input-group
+              // /.card-body
+            // /.card
+            // Horizontal Form
+            .card.card-info
+              .card-header
+                h3.card-title Horizontal Form
+              // /.card-header
+              // form start
+              form.form-horizontal
+                .card-body
+                  .form-group.row
+                    label.col-sm-2.col-form-label(for='inputEmail3') Email
+                    .col-sm-10
+                      input#inputEmail3.form-control(type='email' placeholder='Email')
+                  .form-group.row
+                    label.col-sm-2.col-form-label(for='inputPassword3') Password
+                    .col-sm-10
+                      input#inputPassword3.form-control(type='password' placeholder='Password')
+                  .form-group.row
+                    .offset-sm-2.col-sm-10
+                      .form-check
+                        input#exampleCheck2.form-check-input(type='checkbox')
+                        label.form-check-label(for='exampleCheck2') Remember me
+                // /.card-body
+                .card-footer
+                  button.btn.btn-info(type='submit') Sign in
+                  button.btn.btn-default.float-right(type='submit') Cancel
+                // /.card-footer
+            // /.card
+          // /.col (left)
+          // right column
+          .col-md-6
+            // general form elements disabled
+            .card.card-warning
+              .card-header
+                h3.card-title General Elements
+              // /.card-header
+              .card-body
+                form(role='form')
+                  .row
+                    .col-sm-6
+                      // text input
+                      .form-group
+                        label Text
+                        input.form-control(type='text' placeholder='Enter ...')
+                    .col-sm-6
+                      .form-group
+                        label Text Disabled
+                        input.form-control(type='text' placeholder='Enter ...' disabled='')
+                  .row
+                    .col-sm-6
+                      // textarea
+                      .form-group
+                        label Textarea
+                        textarea.form-control(rows='3' placeholder='Enter ...')
+                    .col-sm-6
+                      .form-group
+                        label Textarea Disabled
+                        textarea.form-control(rows='3' placeholder='Enter ...' disabled='')
+                  // input states
+                  .form-group
+                    label.col-form-label(for='inputSuccess')
+                      i.fas.fa-check
+                      |  Input with
+                      |                       success
+                    input#inputSuccess.form-control.is-valid(type='text' placeholder='Enter ...')
+                  .form-group
+                    label.col-form-label(for='inputWarning')
+                      i.far.fa-bell
+                      |  Input with
+                      |                       warning
+                    input#inputWarning.form-control.is-warning(type='text' placeholder='Enter ...')
+                  .form-group
+                    label.col-form-label(for='inputError')
+                      i.far.fa-times-circle
+                      |  Input with
+                      |                       error
+                    input#inputError.form-control.is-invalid(type='text' placeholder='Enter ...')
+                  .row
+                    .col-sm-6
+                      // checkbox
+                      .form-group
+                        .form-check
+                          input.form-check-input(type='checkbox')
+                          label.form-check-label Checkbox
+                        .form-check
+                          input.form-check-input(type='checkbox' checked='')
+                          label.form-check-label Checkbox checked
+                        .form-check
+                          input.form-check-input(type='checkbox' disabled='')
+                          label.form-check-label Checkbox disabled
+                    .col-sm-6
+                      // radio
+                      .form-group
+                        .form-check
+                          input.form-check-input(type='radio' name='radio1')
+                          label.form-check-label Radio
+                        .form-check
+                          input.form-check-input(type='radio' name='radio1' checked='')
+                          label.form-check-label Radio checked
+                        .form-check
+                          input.form-check-input(type='radio' disabled='')
+                          label.form-check-label Radio disabled
+                  .row
+                    .col-sm-6
+                      // select
+                      .form-group
+                        label Select
+                        select.form-control
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                          option option 5
+                    .col-sm-6
+                      .form-group
+                        label Select Disabled
+                        select.form-control(disabled='')
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                          option option 5
+                  .row
+                    .col-sm-6
+                      // Select multiple
+                      .form-group
+                        label Select Multiple
+                        select.form-control(multiple='')
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                          option option 5
+                    .col-sm-6
+                      .form-group
+                        label Select Multiple Disabled
+                        select.form-control(multiple='' disabled='')
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                          option option 5
+              // /.card-body
+            // /.card
+            // general form elements disabled
+            .card.card-secondary
+              .card-header
+                h3.card-title Custom Elements
+              // /.card-header
+              .card-body
+                form(role='form')
+                  .row
+                    .col-sm-6
+                      // checkbox
+                      .form-group
+                        .custom-control.custom-checkbox
+                          input#customCheckbox1.custom-control-input(type='checkbox' value='option1')
+                          label.custom-control-label(for='customCheckbox1') Custom Checkbox
+                        .custom-control.custom-checkbox
+                          input#customCheckbox2.custom-control-input(type='checkbox' checked='')
+                          label.custom-control-label(for='customCheckbox2') Custom Checkbox checked
+                        .custom-control.custom-checkbox
+                          input#customCheckbox3.custom-control-input(type='checkbox' disabled='')
+                          label.custom-control-label(for='customCheckbox3') Custom Checkbox disabled
+                    .col-sm-6
+                      // radio
+                      .form-group
+                        .custom-control.custom-radio
+                          input#customRadio1.custom-control-input(type='radio' name='customRadio')
+                          label.custom-control-label(for='customRadio1') Custom Radio
+                        .custom-control.custom-radio
+                          input#customRadio2.custom-control-input(type='radio' name='customRadio' checked='')
+                          label.custom-control-label(for='customRadio2') Custom Radio checked
+                        .custom-control.custom-radio
+                          input#customRadio3.custom-control-input(type='radio' disabled='')
+                          label.custom-control-label(for='customRadio3') Custom Radio disabled
+                  .row
+                    .col-sm-6
+                      // select
+                      .form-group
+                        label Custom Select
+                        select.custom-select
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                          option option 5
+                    .col-sm-6
+                      .form-group
+                        label Custom Select Disabled
+                        select.custom-select(disabled='')
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                          option option 5
+                  .row
+                    .col-sm-6
+                      // Select multiple
+                      .form-group
+                        label Custom Select Multiple
+                        select.custom-select(multiple='')
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                          option option 5
+                    .col-sm-6
+                      .form-group
+                        label Custom Select Multiple Disabled
+                        select.custom-select(multiple='' disabled='')
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                          option option 5
+                  .form-group
+                    .custom-control.custom-switch
+                      input#customSwitch1.custom-control-input(type='checkbox')
+                      label.custom-control-label(for='customSwitch1') Toggle this custom switch element
+                  .form-group
+                    .custom-control.custom-switch.custom-switch-off-danger.custom-switch-on-success
+                      input#customSwitch3.custom-control-input(type='checkbox')
+                      label.custom-control-label(for='customSwitch3') Toggle this custom switch element with custom colors danger/success
+                  .form-group
+                    .custom-control.custom-switch
+                      input#customSwitch2.custom-control-input(type='checkbox' disabled='')
+                      label.custom-control-label(for='customSwitch2') Disabled custom switch element
+                  .form-group
+                    label(for='customRange1') Custom range
+                    input#customRange1.custom-range(type='range')
+                  .form-group
+                    label(for='customRange1') Custom range (custom-range-danger)
+                    input#customRange1.custom-range.custom-range-danger(type='range')
+                  .form-group
+                    label(for='customRange1') Custom range (custom-range-teal)
+                    input#customRange1.custom-range.custom-range-teal(type='range')
+                  .form-group
+                    // <label for="customFile">Custom File</label>
+                    .custom-file
+                      input#customFile.custom-file-input(type='file')
+                      label.custom-file-label(for='customFile') Choose file
+                  .form-group
+              // /.card-body
+            // /.card
+          // /.col (right)
+        // /.row
