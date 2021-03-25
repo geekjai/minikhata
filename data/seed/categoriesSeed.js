@@ -1,4 +1,4 @@
-const CATEGORY = require('../schemas/pro_categories');
+const CATEGORY = require('../schemas/proCategories');
 
 CATEGORY.SCHEMA.bulkCreate([
     {

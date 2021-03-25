@@ -1,4 +1,4 @@
-const METRICUNIT = require('../schemas/pro_metric_units');
+const METRICUNIT = require('../schemas/proMetricUnits');
 
 METRICUNIT.SCHEMA.bulkCreate([
     {

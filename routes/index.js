@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const METRICUNIT = require('../data/schemas/pro_metric_units');
+const METRICUNIT = require('../data/schemas/proMetricUnits');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   METRICUNIT.findAll().then(dbMetricUnits => {

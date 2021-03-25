@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Promise = require('promise');
 const moment = require('moment');
-const PRODUCT = require('../data/schemas/pro_products');
-const PURCHASE = require('../data/schemas/pro_purchases');
+const PRODUCT = require('../data/schemas/proProducts');
+const PURCHASE = require('../data/schemas/proPurchases');
 
 router.get('/viewPurchases', function (req, res, next) {
   res.render('purchase', { ViewPurchases: true });

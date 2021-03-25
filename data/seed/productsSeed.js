@@ -1,4 +1,4 @@
-const PRODUCT = require('../schemas/pro_products');
+const PRODUCT = require('../schemas/proProducts');
 
 PRODUCT.SCHEMA.bulkCreate([
     {
