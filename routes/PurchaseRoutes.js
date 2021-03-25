@@ -4,6 +4,7 @@ var Promise = require('promise');
 const moment = require('moment');
 const PRODUCT = require('../data/schemas/proProducts');
 const PURCHASE = require('../data/schemas/proPurchases');
+const PurchaseService = require('../data/service/purchaseService');
 
 router.get('/viewPurchases', function (req, res, next) {
   res.render('purchase', { ViewPurchases: true });
@@ -72,10 +73,9 @@ router.get('/api/purchaseRecords', function (req, res, next) {
 
 /* POST new purchase. */
 router.post('/api/createPurchase', function (req, res) {
-  let data = PURCHASE.processPurchaseRequest(true, false, req.body);
-  PURCHASE.SCHEMA.create(data).then((purchase) => {
+  PurchaseService.createPuchase(req.body).then(() => {
     res.send({ success: 'Yes' });
-  });
+  })
 });
 
 /* PUT update existing purchase. */

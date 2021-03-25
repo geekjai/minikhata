@@ -4,7 +4,8 @@ require('./schemas/proCategories');
 require('./schemas/proProducts');
 require('./schemas/proPurchases');
 require('./schemas/proManufactures');
-require('./schemas/proManufactureProducts');
+require('./schemas/proProductManufactureMap');
+require('./schemas/proPurchaseManufactureMap');
 
 sequelize.sync({ force: true })
     .then(() => {
@@ -12,4 +13,5 @@ sequelize.sync({ force: true })
         require('./seed/metricUnitsSeed');
         require('./seed/categoriesSeed');
         require('./seed/productsSeed');
+        require('./testDataSeed');
     });

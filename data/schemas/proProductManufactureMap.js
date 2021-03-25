@@ -1,8 +1,8 @@
-//pro_manufacture_products.js
+//proProductManufactureMap.js.js
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/dbConfig');
 
-const SCHEMA = sequelize.define('pro_manufacture_products',
+const SCHEMA = sequelize.define('pro_product_manufacture_map',
     {
         id: {
             type: Sequelize.INTEGER,

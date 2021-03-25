@@ -1,6 +1,7 @@
 //pro_manufactures.js
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/dbConfig');
+const moment = require('moment');
 
 const SCHEMA = sequelize.define('pro_manufactures',
     {
@@ -18,6 +19,38 @@ const SCHEMA = sequelize.define('pro_manufactures',
     }
 );
 
+const processManufactureRequest = (isCreate, isUpdate, requestBody) => {
+
+    if (requestBody == undefined) {
+        return {};
+    }
+
+    let lManufactureDate = requestBody.manufactureDate;
+    if (lManufactureDate !== undefined) {
+        const d = new Date(lManufactureDate);
+        lManufactureDate = moment(d).format('YYYY-MM-DD');
+    }
+
+    if (isUpdate) {
+        return {
+            manufactureQuantity: requestBody.manufactureQuantity,
+            manufactureDate: lManufactureDate,
+            manufactureNotes: requestBody.manufactureNotes
+        }
+    }
+
+    if (isCreate) {
+        return {
+            manufactureQuantity: requestBody.manufactureQuantity,
+            manufactureDate: lManufactureDate,
+            manufactureNotes: requestBody.manufactureNotes
+        }
+    }
+
+    return {};
+}
+
 module.exports = {
-    SCHEMA
+    SCHEMA,
+    processManufactureRequest
 };

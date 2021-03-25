@@ -31,7 +31,12 @@ const SCHEMA = sequelize.define('pro_purchases',
         payableAmount: Sequelize.REAL,
 
         purchaseDate: Sequelize.DATE,
-        isAmountSettled: Sequelize.STRING
+        isAmountSettled: Sequelize.STRING,
+        isConsumed: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            defaultValue: 'N' 
+        }
     }
 );
 
