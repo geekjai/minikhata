@@ -1,26 +1,23 @@
-//pro_metric_units.js
+//pro_manufacture_products.js
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/dbConfig');
 
-const SCHEMA = sequelize.define('pro_metric_units',
+const SCHEMA = sequelize.define('pro_manufacture_products',
     {
-        metricId : {
+        id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true // Automatically gets converted to SERIAL for postgres
         },
-        unitType: {
-            type: Sequelize.STRING,
+        manufactureId: {
+            type: Sequelize.INTEGER,
             allowNull: false
         },
-        unitName: {
-            type: Sequelize.STRING,
+        productId: {
+            type: Sequelize.INTEGER,
             allowNull: false
         },
-        unitSymbol : {
-            type: Sequelize.STRING,
-            allowNull: false
-        }
+        productQuantity: Sequelize.REAL
     }
 );
 

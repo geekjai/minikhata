@@ -1,8 +1,8 @@
 //pro_products.js
 const Sequelize = require('sequelize');
-const sqlite = require('../../config/sqlite');
+const sequelize = require('../../config/dbConfig');
 
-const SCHEMA = sqlite.define('pro_products',
+const SCHEMA = sequelize.define('pro_products',
     {
         productId: {
             type: Sequelize.INTEGER,

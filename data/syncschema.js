@@ -1,10 +1,12 @@
-const sqlite = require('../config/sqlite');
+const sequelize = require('../config/dbConfig');
 require('./schemas/pro_metric_units');
 require('./schemas/pro_categories');
 require('./schemas/pro_products');
 require('./schemas/pro_purchases');
+require('./schemas/pro_manufactures');
+require('./schemas/pro_manufacture_products');
 
-sqlite.sync({ force: true })
+sequelize.sync({ force: true })
 .then(() => {
     console.log(`Database & tables created!`);
     require('./seed/metric_units');

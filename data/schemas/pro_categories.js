@@ -1,8 +1,8 @@
 //pro_categories.js
 const Sequelize = require('sequelize');
-const sqlite = require('../../config/sqlite');
+const sequelize = require('../../config/dbConfig');
 
-const CATEGORY = sqlite.define('pro_categories',
+const SCHEMA = sequelize.define('pro_categories',
     {
         id: {
             type: Sequelize.INTEGER,
@@ -30,4 +30,6 @@ const CATEGORY = sqlite.define('pro_categories',
     }
 );
 
-module.exports = CATEGORY;
+module.exports = {
+    SCHEMA
+};

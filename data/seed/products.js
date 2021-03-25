@@ -1,5 +1,3 @@
-const Sequelize = require('sequelize');
-const sqlite = require('../../config/sqlite');
 const PRODUCT = require('../schemas/pro_products');
 
 PRODUCT.SCHEMA.bulkCreate([

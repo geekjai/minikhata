@@ -1,8 +1,6 @@
-const Sequelize = require('sequelize');
-const sqlite = require('../../config/sqlite');
 const CATEGORY = require('../schemas/pro_categories');
 
-CATEGORY.bulkCreate([
+CATEGORY.SCHEMA.bulkCreate([
     {
         categoryId: 1,
         categoryName: 'Incense Stick',

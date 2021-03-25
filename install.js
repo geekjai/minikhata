@@ -1,4 +1,4 @@
-const sequelize = require('./config/sqlite');
+const sequelize = require('./config/dbConfig');
 
 sequelize
 .authenticate()

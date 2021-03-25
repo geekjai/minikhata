@@ -1,8 +1,6 @@
-const Sequelize = require('sequelize');
-const sqlite = require('../../config/sqlite');
 const METRICUNIT = require('../schemas/pro_metric_units');
 
-METRICUNIT.bulkCreate([
+METRICUNIT.SCHEMA.bulkCreate([
     {
         metricId: 1,
         unitType: 'LENGTH',

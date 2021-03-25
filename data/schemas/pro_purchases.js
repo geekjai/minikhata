@@ -1,16 +1,16 @@
 //pro_products.js
 const Sequelize = require('sequelize');
-const sqlite = require('../../config/sqlite');
+const sequelize = require('../../config/dbConfig');
 const moment = require('moment');
 
 const findAllQuery = `SELECT pd.productName, pu.* 
                         FROM pro_purchases pu, pro_products pd 
                         WHERE pd.productId = pu.productId`;
 const execFindAll = () => {
-    return sqlite.query(findAllQuery, { type: Sequelize.QueryTypes.SELECT });
+    return sequelize.query(findAllQuery, { type: Sequelize.QueryTypes.SELECT });
 }
 
-const SCHEMA = sqlite.define('pro_purchases',
+const SCHEMA = sequelize.define('pro_purchases',
     {
         purchaseId: {
             type: Sequelize.INTEGER,
