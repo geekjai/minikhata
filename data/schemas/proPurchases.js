@@ -31,11 +31,15 @@ const SCHEMA = sequelize.define('pro_purchases',
         payableAmount: Sequelize.REAL,
 
         purchaseDate: Sequelize.DATE,
-        isAmountSettled: Sequelize.STRING,
+        isAmountSettled: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            defaultValue: 'N'
+        },
         isConsumed: {
             type: Sequelize.STRING,
             allowNull: false,
-            defaultValue: 'N' 
+            defaultValue: 'N'
         }
     }
 );
@@ -76,8 +80,7 @@ const processPurchaseRequest = (isCreate, isUpdate, requestBody) => {
             gstAmount: requestBody.gstAmount,
             discountAmount: requestBody.discountAmount,
             payableAmount: lPayableAmount,
-            purchaseDate: lPurchaseDate,
-            isAmountSettled: requestBody.isAmountSettled
+            purchaseDate: lPurchaseDate
         }
     }
 
@@ -91,13 +94,14 @@ const processPurchaseRequest = (isCreate, isUpdate, requestBody) => {
             gstAmount: requestBody.gstAmount,
             discountAmount: requestBody.discountAmount,
             payableAmount: lPayableAmount,
-            purchaseDate: lPurchaseDate,
-            isAmountSettled: requestBody.isAmountSettled
+            purchaseDate: lPurchaseDate
         }
     }
 
     return {};
 }
+
+
 
 module.exports = {
     SCHEMA,

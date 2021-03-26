@@ -13,5 +13,4 @@ sequelize.sync({ force: true })
         require('./seed/metricUnitsSeed');
         require('./seed/categoriesSeed');
         require('./seed/productsSeed');
-        require('./testDataSeed');
     });

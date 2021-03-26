@@ -1,8 +1,4 @@
-const { Transaction } = require('sequelize');
-const sequelize = require('../../config/dbConfig');
 const executeTransaction = require('../../config/executeTransaction');
-
-const PRODUCT = require('../schemas/proProducts');
 const PURCHASE = require('../schemas/proPurchases');
 const PurchaseManufactureMap = require('../schemas/proPurchaseManufactureMap');
 
@@ -28,6 +24,15 @@ const createPuchase = (requestBody) => {
     });
 }
 
+const searchPurchaseByPurchaseId = (pPurchaseId) => {
+    return PURCHASE.SCHEMA.findAll({
+        where: {
+            purchaseId: pPurchaseId
+        }
+    });
+}
+
 module.exports = {
-    createPuchase
+    createPuchase,
+    searchPurchaseByPurchaseId
 }
