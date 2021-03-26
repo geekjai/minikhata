@@ -97,7 +97,7 @@ const processPurchaseManufactureData = (t, productList, productManufList) => {
                 }
                 for (let i = 0; i < productManufList.length; i++) {
                     let curRow = productManufList[i];
-                    console.log(curRow);
+                    //console.log(curRow);
                     //curRow = { manufactureId: 2, productId: '1', productQuantity: '5' }
                     if (curRow.productId == element.productId) {
                         let curQuantity = 0;
@@ -119,14 +119,13 @@ const processPurchaseManufactureData = (t, productList, productManufList) => {
                             purchaseId: element.purchaseId,
                             outQuantity: curQuantity
                         }
-                        console.log(obj);
+
                         purchManufList.push(obj);
                         if (curQuantity == remain) {
                             consumedPurchaseList.push(element.purchaseId);
                         }
                         if (curRow.productQuantity <= 0) {
                             productManufList.splice(i, 1);
-                            console.log("?????????????????????????? " + productManufList.length);
                             break;
                         }
                     }
@@ -140,8 +139,19 @@ const processPurchaseManufactureData = (t, productList, productManufList) => {
         })
 }
 
+const bulkCreatePurchaseManufactureMap = (t, pPurchaseManufactureMaps) => {
+
+    return SCHEMA.bulkCreate(pPurchaseManufactureMaps, { transaction: t });
+}
+
+const createPurchaseManufactureMap = (t, pPurchaseManufactureMap) => {
+
+    return SCHEMA.create(pPurchaseManufactureMap, { transaction: t });
+}
+
 module.exports = {
-    SCHEMA,
     processPurchaseManufactureData,
-    execFindPurManufQtyByPurchaseIds
+    execFindPurManufQtyByPurchaseIds,
+    bulkCreatePurchaseManufactureMap,
+    createPurchaseManufactureMap
 };

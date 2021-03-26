@@ -1,10 +1,11 @@
 'use strict';
 const fs = require('fs');
 const purchaseService = require('../data/service/purchaseService');
+const manufactureService = require('../data/service/manufactureService');
 
-describe("Verify Purchase flow", () => {
-
+describe("Verify Manufacture flow", () => {
     let purchases = null;
+    let manufactureRaw = null;
     let purchaseData = null;
     let purchaseIds = [];
     beforeAll(async () => {
@@ -25,28 +26,13 @@ describe("Verify Purchase flow", () => {
                 .searchPurchaseByPurchaseId(purchases[0].purchaseId);
         }
 
+        //now create manufacturing records
+        manufactureRaw = await fs.readFileSync('./__json__/manufacture.spec.json');
+        manufactureRaw = JSON.parse(manufactureRaw);
+        await manufactureService.createManufacture(manufactureRaw);
     });
 
-    // test stuff
-    test("Total count of inserted test data", () => {
-        // actual test
-        expect(purchaseData.length).toBe(1);
-    });
+    test("Total count of inserted test data is 1", () => {
 
-    // test stuff
-    test("Verify data in pro_purchase_manufacture_map tbl", () => {
-        // actual test
-        purchaseService.searchPurManufQtyByPurchaseIds(purchaseIds)
-            .then((response) => {
-                expect(response.length).toBe(purchaseIds.length);
-                for (let i = 0; i < response.length; i++) {
-                    let row = response[i];
-                    if (row.productId == 1) {
-                        expect(row.inQuantity).toBe(5);
-                        expect(row.outQuantity).toBe(0);
-                    }
-                }
-            });
     });
-
 });

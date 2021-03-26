@@ -50,7 +50,13 @@ const processManufactureRequest = (isCreate, isUpdate, requestBody) => {
     return {};
 }
 
+const createManufacture = (t, pManufacture) => {
+
+    return SCHEMA.create(pManufacture, { transaction: t })
+}
+
 module.exports = {
     SCHEMA,
-    processManufactureRequest
+    processManufactureRequest,
+    createManufacture
 };

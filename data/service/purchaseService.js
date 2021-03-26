@@ -8,12 +8,14 @@ const createPuchase = (requestBody) => {
         // chain all your queries here. make sure you return them.
         return PURCHASE.SCHEMA.create(data, { transaction: t })
             .then((purchaseResult) => {
-                return PurchaseManufactureMap.SCHEMA.create(
-                    {
-                        productId: purchaseResult.productId,
-                        purchaseId: purchaseResult.purchaseId,
-                        inQuantity: purchaseResult.purchaseQuantity
-                    }, { transaction: t });
+                return PurchaseManufactureMap
+                    .createPurchaseManufactureMap(t,
+                        {
+                            productId: purchaseResult.productId,
+                            purchaseId: purchaseResult.purchaseId,
+                            inQuantity: purchaseResult.purchaseQuantity
+                        }
+                    );
             });
     }).then(function (result) {
         // Transaction has been committed

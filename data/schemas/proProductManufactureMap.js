@@ -21,6 +21,11 @@ const SCHEMA = sequelize.define('pro_product_manufacture_map',
     }
 );
 
+const bulkCreateProductManufactureMap = (t, pProductManufactureMaps) => {
+
+    return SCHEMA.bulkCreate(pProductManufactureMaps, { transaction: t });
+}
+
 module.exports = {
-    SCHEMA
+    bulkCreateProductManufactureMap
 };
