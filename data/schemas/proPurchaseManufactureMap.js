@@ -25,6 +25,28 @@ const execFindProdPurchaseQuantity = (t, products) => {
     );
 }
 
+const findPurManufQtyByPurchaseIds = `
+SELECT 
+    pur.purchaseId AS purchaseId, 
+    pur.productId AS productId,
+    sum(pmm.inQuantity) AS inQuantity, 
+    coalesce(sum(outQuantity), 0) AS outQuantity 
+FROM pro_purchases pur, pro_purchase_manufacture_maps pmm
+WHERE pur.productId = pmm.productId
+AND pur.purchaseId = pmm.purchaseId
+AND pur.purchaseId IN(:bindPurchaseIds)
+GROUP BY pur.purchaseId, pur.productId`;
+
+const execFindPurManufQtyByPurchaseIds = (t, purchases) => {
+    return sequelize.query(findPurManufQtyByPurchaseIds,
+        {
+            replacements: { bindPurchaseIds: purchases },
+            type: Sequelize.QueryTypes.SELECT,
+            transaction: t
+        }
+    );
+}
+
 const SCHEMA = sequelize.define('pro_purchase_manufacture_map',
     {
         id: {
@@ -120,5 +142,6 @@ const processPurchaseManufactureData = (t, productList, productManufList) => {
 
 module.exports = {
     SCHEMA,
-    processPurchaseManufactureData
+    processPurchaseManufactureData,
+    execFindPurManufQtyByPurchaseIds
 };

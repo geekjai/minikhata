@@ -8,12 +8,12 @@ const createPuchase = (requestBody) => {
         // chain all your queries here. make sure you return them.
         return PURCHASE.SCHEMA.create(data, { transaction: t })
             .then((purchaseResult) => {
-                return PurchaseManufactureMap.SCHEMA.create({
-
-                    productId: purchaseResult.productId,
-                    purchaseId: purchaseResult.purchaseId,
-                    inQuantity: purchaseResult.purchaseQuantity
-                }, { transaction: t });
+                return PurchaseManufactureMap.SCHEMA.create(
+                    {
+                        productId: purchaseResult.productId,
+                        purchaseId: purchaseResult.purchaseId,
+                        inQuantity: purchaseResult.purchaseQuantity
+                    }, { transaction: t });
             });
     }).then(function (result) {
         // Transaction has been committed
@@ -32,7 +32,12 @@ const searchPurchaseByPurchaseId = (pPurchaseId) => {
     });
 }
 
+const searchPurManufQtyByPurchaseIds = (pPurchaseIds) => {
+    return PurchaseManufactureMap.execFindPurManufQtyByPurchaseIds(null, pPurchaseIds);
+}
+
 module.exports = {
     createPuchase,
-    searchPurchaseByPurchaseId
+    searchPurchaseByPurchaseId,
+    searchPurManufQtyByPurchaseIds
 }
