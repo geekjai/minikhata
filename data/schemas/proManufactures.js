@@ -56,7 +56,6 @@ const createManufacture = (t, pManufacture) => {
 }
 
 module.exports = {
-    SCHEMA,
     processManufactureRequest,
     createManufacture
 };

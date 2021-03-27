@@ -110,8 +110,18 @@ const bulkUpdateIsConsumedToY = (t, pPurchaseIds) => {
     });
 }
 
+const findAllByPurchaseId = (t, pPurchaseId) => {
+    return SCHEMA.findAll({
+        where: {
+            purchaseId: pPurchaseId
+        },
+        transaction: t
+    });
+}
+
 module.exports = {
     SCHEMA,
+    findAllByPurchaseId,
     execFindAll,
     calculatePayableAmount,
     processPurchaseRequest,

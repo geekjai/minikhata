@@ -27,11 +27,7 @@ const createPuchase = (requestBody) => {
 }
 
 const searchPurchaseByPurchaseId = (pPurchaseId) => {
-    return PURCHASE.SCHEMA.findAll({
-        where: {
-            purchaseId: pPurchaseId
-        }
-    });
+    return PURCHASE.findAllByPurchaseId(null, pPurchaseId);
 }
 
 const searchPurManufQtyByPurchaseIds = (pPurchaseIds) => {
