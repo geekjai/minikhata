@@ -1,4 +1,5 @@
 const executeTransaction = require('../../config/executeTransaction');
+const proPurchases = require('../schemas/proPurchases');
 const proManufactures = require('../schemas/proManufactures');
 const proProductManufactureMap = require('../schemas/proProductManufactureMap');
 const proPurchaseManufactureMap = require('../schemas/proPurchaseManufactureMap');
@@ -33,6 +34,7 @@ const createManufacture = (requestBody) => {
         consumedPurchaseList = jsonObj.consumedPurchaseList;
 
         await proPurchaseManufactureMap.bulkCreatePurchaseManufactureMap(t, purchManufList);
+        await proPurchases.bulkUpdateIsConsumed(t, consumedPurchaseList);
         return;
     }).then(function (result) {
         // Transaction has been committed
