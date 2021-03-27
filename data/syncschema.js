@@ -1,4 +1,5 @@
 const sequelize = require('../config/dbConfig');
+require('./schemas/proDeployLogs');
 require('./schemas/proMetricUnits');
 require('./schemas/proCategories');
 require('./schemas/proProducts');
