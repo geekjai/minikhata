@@ -4,6 +4,7 @@ const purchaseService = require('../data/service/purchaseService');
 const manufactureService = require('../data/service/manufactureService');
 
 describe("Verify Manufacture flow", () => {
+    /*
     let purchases = null;
     let manufactureRaw = null;
     let purchaseData = null;
@@ -31,7 +32,7 @@ describe("Verify Manufacture flow", () => {
         manufactureRaw = JSON.parse(manufactureRaw);
         await manufactureService.createManufacture(manufactureRaw);
     });
-
+    */
     test("Total count of inserted test data is 1", () => {
 
     });

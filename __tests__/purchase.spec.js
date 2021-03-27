@@ -13,6 +13,8 @@ describe("Verify Purchase flow", () => {
 
         purchaseData = await purchaseService
             .searchPurchaseByPurchaseId(purchases[0].purchaseId);
+
+        /*
         //check item existence if not create it    
         if (purchaseData == undefined || purchaseData.length == 0) {
             //.forEach (other methods that don't go together with async/await are .map, .filter and .reduce
@@ -24,7 +26,7 @@ describe("Verify Purchase flow", () => {
             purchaseData = await purchaseService
                 .searchPurchaseByPurchaseId(purchases[0].purchaseId);
         }
-
+        */
     });
 
     // test stuff

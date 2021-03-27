@@ -34,7 +34,7 @@ const createManufacture = (requestBody) => {
         consumedPurchaseList = jsonObj.consumedPurchaseList;
 
         await proPurchaseManufactureMap.bulkCreatePurchaseManufactureMap(t, purchManufList);
-        await proPurchases.bulkUpdateIsConsumed(t, consumedPurchaseList);
+        await proPurchases.bulkUpdateIsConsumedToY(t, consumedPurchaseList);
         return;
     }).then(function (result) {
         // Transaction has been committed

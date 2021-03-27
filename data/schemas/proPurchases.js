@@ -101,7 +101,7 @@ const processPurchaseRequest = (isCreate, isUpdate, requestBody) => {
     return {};
 }
 
-const bulkUpdateIsConsumed = (t, pPurchaseIds) => {
+const bulkUpdateIsConsumedToY = (t, pPurchaseIds) => {
     return SCHEMA.update({ isConsumed: 'Y' }, {
         where: {
             purchaseId: pPurchaseIds
@@ -115,5 +115,5 @@ module.exports = {
     execFindAll,
     calculatePayableAmount,
     processPurchaseRequest,
-    bulkUpdateIsConsumed
+    bulkUpdateIsConsumedToY
 };
