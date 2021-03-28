@@ -45,6 +45,29 @@ const createManufacture = (requestBody) => {
     });
 }
 
+const evaluateManufactureCost = (pManufactureId) => {
+    return executeTransaction(async (t) => {
+        let response = await proManufactures.execProdPurManufCostQty(t, pManufactureId);
+        let totalManufCost = 0;
+        if (response.length > 0) {
+            response.forEach(element => {
+                let payableAmount = element.payableAmount;
+                let purchaseQuantity = element.purchaseQuantity;
+                let outQuantity = element.outQuantity;
+                let manufCost = (payableAmount / purchaseQuantity) * outQuantity;
+                totalManufCost = totalManufCost + manufCost;
+            });
+        }
+        await proManufactures.updateManufactureCost(t, pManufactureId, totalManufCost);
+        return totalManufCost;
+    }).then(function (result) {
+        return result;
+    }).catch(function (err) {
+        throw err;
+    });
+}
+
 module.exports = {
-    createManufacture
+    createManufacture,
+    evaluateManufactureCost
 }

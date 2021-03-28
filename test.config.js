@@ -43,4 +43,14 @@ const runManufactureService = async () => {
     await deployLogService.createTestConfigJsLog();
 }
 
+const runSample = async () => {
+    manufactureService.evaluateManufactureCost(1)
+    .then((result) => {
+        console.log(result);
+    });
+}
+   
+            
+
+//runSample();
 runManufactureService();

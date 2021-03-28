@@ -33,7 +33,8 @@ describe("Verify Manufacture flow", () => {
         await manufactureService.createManufacture(manufactureRaw);
     });
     */
-    test("Total count of inserted test data is 1", () => {
-
+    test("evaluateManufactureCost", async () => {
+        let result = await manufactureService.evaluateManufactureCost(1);
+        expect(result).toBe(279.6);
     });
 });
