@@ -64,7 +64,7 @@ $(function () {
         var form = event.currentTarget;
         var purchase = purchaseJson(form);
         $.ajax({
-            type: 'post',
+            type: 'put',
             url: '/purchases/api/editPurchase',
             data: JSON.stringify(purchase),
             contentType: "application/json; charset=utf-8",

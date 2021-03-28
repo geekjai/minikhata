@@ -42,6 +42,7 @@ const createManufacture = (requestBody) => {
     }).catch(function (err) {
         // Transaction has been rolled back
         // err is whatever rejected the promise chain returned to the transaction callback
+        throw err;
     });
 }
 

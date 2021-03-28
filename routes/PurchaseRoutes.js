@@ -2,9 +2,8 @@ var express = require('express');
 var router = express.Router();
 var Promise = require('promise');
 const moment = require('moment');
-const PRODUCT = require('../data/schemas/proProducts');
-const PURCHASE = require('../data/schemas/proPurchases');
-const PurchaseService = require('../data/service/purchaseService');
+const productService = require('../data/service/productService');
+const purchaseService = require('../data/service/purchaseService');
 
 router.get('/viewPurchases', function (req, res, next) {
   res.render('purchase', { ViewPurchases: true });
@@ -13,7 +12,7 @@ router.get('/viewPurchases', function (req, res, next) {
 /* Render create purchase. */
 router.get('/createPurchase', function (req, res, next) {
   Promise
-    .all([PRODUCT.SCHEMA.findAll()])
+    .all([productService.fetchAll()])
     .then(responses => {
       res.render('purchase',
         {
@@ -34,13 +33,8 @@ router.get('/editPurchase/:purchaseId', async function (req, res) {
   var id = req.params.purchaseId;
   Promise
     .all([
-      PRODUCT.SCHEMA.findAll(),
-      PURCHASE.SCHEMA.findAll({
-        where: {
-          purchaseId: id
-        },
-        raw: true
-      })
+      productService.fetchAll(),
+      purchaseService.searchPurchaseByPurchaseId(id)
     ])
     .then(responses => {
       let purchaseDate = responses[1][0].purchaseDate;
@@ -62,7 +56,7 @@ router.get('/editPurchase/:purchaseId', async function (req, res) {
 
 router.get('/api/purchaseRecords', function (req, res, next) {
   Promise
-    .all([PURCHASE.execFindAll()])
+    .all([purchaseService.fetchAllPurchases()])
     .then(responses => {
       res.send(responses[0]);
     })
@@ -73,29 +67,28 @@ router.get('/api/purchaseRecords', function (req, res, next) {
 
 /* POST new purchase. */
 router.post('/api/createPurchase', function (req, res) {
-  PurchaseService.createPuchase(req.body).then(() => {
+  purchaseService.createPuchase(req.body).then(() => {
     res.send({ success: 'Yes' });
   })
 });
 
 /* PUT update existing purchase. */
 router.put('/api/editPurchase', function (req, res) {
-  let data = PURCHASE.processPurchaseRequest(false, true, req.body);
-  PURCHASE.SCHEMA.findByPk(req.body.purchaseId).then(function (purchase) {
-    purchase.update(data).then((purchase) => {
+  let purchaseId = req.body.purchaseId;
+  let data = req.body;
+  purchaseService.updatePurchaseByPurchaseId(purchaseId, data)
+    .then((response) => {
       res.sendStatus(200);
     });
-  });
 });
 
 /* Delete existing purchase. */
 router.delete('/api/deletePurchase/:purchaseId', function (req, res) {
   let purchaseId = req.params.purchaseId;
-  PURCHASE.SCHEMA.findByPk(purchaseId).then(function (purchase) {
-    purchase.destroy();
-  }).then((purchase) => {
-    res.sendStatus(200);
-  });
+  purchaseService.deleteByPurchaseId(purchaseId)
+    .then((purchase) => {
+      res.sendStatus(200);
+    });
 });
 
 module.exports = router;
